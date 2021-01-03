@@ -104,6 +104,10 @@ exports.plugin = {
             else return new Boom.badImplementation();
         };
 
+        // cluster #todo
+        const currentstatuscluster = (cluster, dev = false) => clusters[cluster].coreapi
+            .listComponentStatus()
+
         // pod
         const createpod = (cluster, yaml, dev = false) => clusters[cluster].coreapi
             .createNamespacedPod(clusters[cluster].namespace, yaml)
